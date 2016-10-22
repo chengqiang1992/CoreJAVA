@@ -1,1 +1,1 @@
-# CoreJAVA
+# JAVA 核心技术卷读书笔记
