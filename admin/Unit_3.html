@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>第三章 对象</title>
+	<title>第三章 Java的基本程序设计结构</title>
 
-	<meta name="keywords" content="JavaScript语言精粹  第三章 对象">
-	<meta name="description" content="JavaScript语言精粹  第三章 对象 读书笔记">
+	<meta name="keywords" content="Java程序设计  第三章  Java的基本程序设计结构">
+	<meta name="description" content="Java程序设计  第三章 Java的基本程序设计结构 读书笔记">
 
 	<link rel="short icon" href="">
 	<link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-3.3.6-dist/css/bootstrap.min.css">
@@ -25,7 +25,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="javascript:void(0);">第三章 对象</a>
+          <a class="navbar-brand" href="javascript:void(0);">第三章 Java的基本程序设计结构</a>
         </div>
 
         <div id="navbar" class="collapse navbar-collapse">
@@ -46,20 +46,20 @@
         <h1>第三章  对象</h1>
         <h3>对于丑陋的事物，爱会闭目无视</h3>
         <h3>——威廉·莎士比亚，《维洛那二绅士》</h3>
-        <p>JavaScript的简单数据类型包括数字、字符串、布尔值(true和false)、null值和undefined值。其他所有的值都是对象。数字、字符串和布尔值“貌似”对象，因为他们拥有方法，但他们是不可变的。JavaScript中的对象是可变键控集合。在JavaScript中，数组是对象，函数是对象，正则表达式是对象，当然，对象自然也是对象</p>
-        <P>对象是属性的容器，其中每个属性都拥有名字和值。属性的名字可以是包括空字符串在内的任意字符串。属性值可以是undefined值之外的任何值。</P>
-        <p>JavaScript里的对象是无类型的，它对新属性的名字和属性的值没有限制。对象适合用于汇集和管理数据。对象可以包含其他对象，所以他们可以容易地表示成树状或图形结构。</p>
-        <P>JavaScript包含一种原型链的特性，允许对象继承另一个对象的属性。正确地使用它能减少对象初始化时消耗的时间和内存。</P>
+        <p>本章主要介绍程序设计的相关基本概念（如数据类型、分支以及循环）在Java中的实现方式。</p>
+        <p>最后需要说明，对于有编程经验的程序员来说，本章的内容只需要浏览一遍</p>
       </div>
 
-      <h3>对象字面量</h3>
+      <h3>3.1  一个简单的Java应用程序</h3>
       <p>对象字面量提供了一种非常方便地创建新对象值的表示法。一个对象字面量就是包围在一对花括号中的零或多个“名/值”对。对象字面量可以出现在任何允许表达式出现的地方。<strong></strong></p>
       <div class="row">
-	    <textarea rows=4 cols=35 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
-	var stooge = {
-		"first-name":"chengqiang",
-		"last-name":"xpluto"
-	};
+	    <textarea rows=6 cols=60 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
+	public class FirstSample {
+        public static void main(String[] args) {
+            // TODO Auto-generated method stub
+            System.out.println("We will not use Hello WOrld");
+        }
+    }
 	    </textarea>
         <p class="text-warning">属性名是包括空白字符在内的任何字符串。在对象字面量中，如果属性名是一个合法的JavaScript标识符且不是保留字，则并不强制要求使用括号括住属性名。</p>
       </div>

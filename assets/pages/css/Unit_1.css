@@ -1,9 +1,4 @@
-body {
-  padding-top: 50px;
-  background-color: #f2f2f2;
-}
-}
-.starter-template {
-  padding: 40px 15px;
-  text-align: center;
+section > p{
+  	font-size: 1.5rem;
+	margin-left: 3rem;
 }
