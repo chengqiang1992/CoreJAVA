@@ -51,197 +51,112 @@
       </div>
 
       <h3>3.1  一个简单的Java应用程序</h3>
-      <p>对象字面量提供了一种非常方便地创建新对象值的表示法。一个对象字面量就是包围在一对花括号中的零或多个“名/值”对。对象字面量可以出现在任何允许表达式出现的地方。<strong></strong></p>
       <div class="row">
 	    <textarea rows=6 cols=60 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
-	public class FirstSample {
-        public static void main(String[] args) {
-            // TODO Auto-generated method stub
-            System.out.println("We will not use Hello WOrld");
-        }
+    public class FirstSample {
+            public static void main(String[] args) {
+                // TODO Auto-generated method stub
+                System.out.println("We will not use Hello WOrld");
+            }
     }
 	    </textarea>
-        <p class="text-warning">属性名是包括空白字符在内的任何字符串。在对象字面量中，如果属性名是一个合法的JavaScript标识符且不是保留字，则并不强制要求使用括号括住属性名。</p>
-      </div>
-      <p>
-      	<textarea rows=14 cols=40 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
-	var flight = {
-		airline:"Oceanic",
-		number:815,
-		departure:{
-			IATA:"SYD",
-			time:"2004-09-22 14:55",
-			city:"Sydney"
-		},
-		arrival:{
-			IATA:"LAX",
-			time:"2004-09-23 14:55",
-			city:"Los Angeles"
-		}
-	};
-      	</textarea>
-      </p>
-
-      <h3>检索</h3>
-      <p>要检索对象里面的值，可以采用在[]后缀中括住一个字符串表达式的方式。如果字符串表达式是一个字符串字面量，而且他是一个合法的JavaScript标识符企鹅不是保留字，那么也可以用.表示法代替。优先考虑使用.表示法，因为他更紧凑且可读性更好。<strong>starting at desktops and scaling to large desktops</strong></p>
-      <div class="row">
-        <div class="col-md-4">
-		    <textarea rows=3 cols=45 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
-    	stooge["first-name"]  		//chengqiang
-	flight.departure.IATA 		//"SYD"
-		    </textarea>
-        </div>
-        <div class="col-md-4">
-			<p class="text-warning">
-				如果尝试检索一个并不存在的成员属性的值，将返回undefined。
-			</p>
-		    <textarea rows=3 cols=45 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
-    	stooge["middle-name"]  	//undefined
-	flight.status	 		//"undefined"
-		    </textarea>
-        </div>
-        <div class="col-md-4">
-			<p class="text-warning">
-				|| 运算符可以用来填充默认值。
-			</p>
-		    <textarea rows=3 cols=45 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
-    	var middle = stooge["middle-name"] || "(none)";
-	var status = flight.status	|| "unknow";
-		    </textarea>
-        </div>
+        <strong>
+          <ul class="text-danger">
+            <li>首先，<strong>Java对大小写敏感。</strong></li>
+            <li>关键字<strong>public</strong>称为ie<strong>访问修饰符，它用于控制程序的其他部分对这段代码的访问级别。</strong></li>
+            <li>关键字class后面紧跟类名。Java中定义类名的规则很宽松。</li>
+            <li>源代码的文件名必须与公共类的名字相同，并且用.java作为扩展名</li>
+          </ul>  
+        </strong>
       </div>
 
-      <h3>更新</h3>
-      <div class="row">
-        <div class="col-md-6">
-			<p class="text-warning">
-				对象里的值可以通过赋值语句来更新。如果属性名已经存在于对象里，那么这个属性的值就会被替换掉。 
-			</p>
-		    <textarea rows=2 cols=45 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
-	stooge["first-name"] = "程强"; 
-		    </textarea>
+
+        <h3>3.2  注释</h3>
+        <p>在Java中，有三种注释方式。</p>
+        <ul class="text-info">
+            <li>最常用的是使用//，其注释内容从//开始到本行末尾。</li>
+            <li>长篇注释，即可在每行的注释前标记//，也可以/*和*/将一段代码括起来</li>
+            <li>第三种，自动生成文档。这种以/**开始，以*/结束</li>
+        </ul>
+
+        <h3>3.3  数据类型</h3>
+        <p>Java是一种强类型语言。这就意味着必须为每一个变量声明一种类型。</p>
+        <div class="sub2">
+            <h4>3.3.1  整形</h4>
+            <table class="table table-hover table-responsive">
+                <caption>表3-1  Java整形</caption>
+                <thead>
+                    <tr>
+                      <th>类型</th>
+                      <th>存储需求</th>
+                      <th>取值范围</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>int</td>
+                      <td>4字节</td>
+                      <td>—— 2147 483 648 ~ 2147 483 647（正好超过20亿）</td>
+                    </tr>
+                    <tr>
+                      <td>short</td>
+                      <td>2字节</td>
+                      <td>——32 768 ~ 32 767</td>
+                    </tr>
+                    <tr>
+                      <td>long</td>
+                      <td>8字节</td>
+                      <td>——9 223 372 036 854 775 808 ~ 9 223 372 036 854 775 807</td>
+                    </tr>
+                    <tr>
+                      <td>byte</td>
+                      <td>1字节</td>
+                      <td>——128 ~ 127</td>
+                    </tr>
+                </tbody>
+            </table>
+            <strong>
+                <ul class="text-danger">
+                    <li>在Java中，整形的范围与运行Java代码的机器无关。</li>
+                    <li>一个字节8位。</li>
+                    <li>长整型数值有一个后缀L，十六进制数值有一个前缀0x，八进制有一个前缀0。</li>
+                    <li>从Java 7开始，加上前缀0b就可以写二进制。例如，0b1001就是9。</li>
+                    <li>从Java 7开始，可以在数字字面量加下划线，如用1_000_000表示一百万。</li>
+                </ul>
+            </strong>
+            <h4><strong class="text-danger">注意，Java没有任何无符号类型(unsigned)</strong></h4>
         </div>
-        <div class="col-md-6">
-			<p class="text-warning">
-				如果对象之前没有拥有那个属性名，那么该属性就会被扩充到对象中。
-			</p>
-		    <textarea rows=6 cols=45 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
-    stooge['middle-name'] = 'lester';
-    stooge.nickname = 'Curly';
-    flight.eruipment = {
-    	model:'Boeing 777'
-    };
-    flight.status = 'overdue';	
-		    </textarea>
+
+        <div class="sub2">
+            <h4>3.3.2  浮点型</h4>
+            <table class="table table-hover table-responsive">
+                <caption>表3-2  浮点类型</caption>
+                <thead>
+                    <tr>
+                      <th>类型</th>
+                      <th>存储需求</th>
+                      <th>取值范围</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>float</td>
+                      <td>4字节</td>
+                      <td>大约 <span>+</span><span class="bottom">_</span>3.402 823 47E + 38F(有效位数6~7位)</td>
+                    </tr>
+                    <tr>
+                      <td>double</td>
+                      <td>8字节</td>
+                      <td>大约 <span>+</span><span class="bottom">_</span>1.797 693 134 862 315 70E + 308(有效位数15位)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <strong>
+                <ul class="text-danger">
+                    <li>浮点数值不适用于禁止出现舍入误差的金融计算中。例如，命令 2.0-1.9，将打印0.899999999，而不是0.9</li>
+                </ul>
+            </strong>
         </div>
-      </div>
-
-      <h3>引用 Reference</h3>
-      <div class="row">
-        <div class="col-md-12">
-			<p class="text-warning">
-				对象通过引用来传递。他们永远不会被复制； 
-			</p>
-		    <textarea rows=10 cols=60 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
-	var x = stooge;
-	x.nickname = 'CurlyTest';
-	var nick = stooge.nickname;		
-	//因为x和stooge是指向同一个对象的引用，所以nick为‘CurlyTest’
-
-	var a = {}, b = {}, c = {};
-	//a,b,c每个都引用一个不同的空对象
-	a = b = c = {};
-	//a,b,c都引用同一个空对象。
-		    </textarea>
-        </div>
-      </div>
-
-      <hr>
-
-      <h3>原型 Prototype</h3>
-      <p>每个对象都连接到一个原型对象，并且它可以从中继承属性。所有通过对象字面量创建的对象都连接到object.prototype，它是JavaScript中的标配对象。<strong></strong></p>
-      <p>当你创建一个新对象时，你可以选择某个对象作为它的原型。Javanese提供的实现机制杂乱而复杂，但其实可以被明显地简化。我们将Object增加一个create方法。这个方法创建一个使用原对象作为其原型的对象。</p>
-      <textarea rows=10 cols=50 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
-	if (typeof Object.baget !== 'function') {
-		Object.create = function(o){
-			var F = function(){};
-			F.prototype = o;
-			return new F();
-		};
-	}
-	var another_stooge = Object.create(stooge);
-	console.log(another_stooge);
-	    </textarea>
-
-	   <p>原型连接在更新时是不起作用的。当我们对某个对象做出改变时，不会触及该对象的原型：</p>
-	    <textarea rows=7 cols=50 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
-	another_stooge['first-name'] =  'Harray';
-	another_stooge['middle-name'] =  'Moses';
-	another_stooge.nickname =  'Moe';
-
-	console.log(another_stooge['first-name']);
-	console.log(another_stooge['middle-name']);
-	console.log(another_stooge.nickname);
-	    </textarea>
-
-		<p>原型连接只有在检索值的时候才被用到。如果我们尝试去获取对象的某个属性值，但该对象没有此属性名，那么JavaScript会尝试着从原型对象中获取属性值。如果那个原型对象也没有该属性。那么再从它的原型中寻找，以此类推，知道该过程最终到达终点Object.prototype。如果想要的属性完全不存在原型链中，那么结果就是undefined值。这个过程成为<span style="color: red">委托</span></p>
-		<p>原型关系是一种动态的关系。如果我们添加一个新的属性到原型中，该属性会立即对所有基于该原型创建的对象可见</p>
-      <hr>
-
-      <h3>反射 Reflection</h3>
-      <p>检查对象并确定对象有什么属性是很容易的事情，只要试着去检索该属性并验证该属性取得的值。typeof 操作符对确定属性的类型很有帮助：</p>
-      <textarea rows=9 cols=50 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
-	typeof flight.number;
-	typeof flight.status;
-	typeof flight.arrival;
-	typeof flight.manifest;
-
-	console.log(typeof flight.number);
-	console.log(typeof flight.status);
-	console.log(typeof flight.arrival);
-	console.log(typeof flight.manifest);
-	    </textarea>
-
-      <h3>枚举 Enumeration</h3>
-      <p>for in语句可用来遍历一个对象中的所有属性名。该枚举过程将会列出所有的属性-包括函数和你可能不关心的原型中的属性-所以有必要过滤掉哪些你不想要的值。最为常用的过滤器是 hasOwnProperty 方法，以及使用 typeof 来排除</p>
-	    <textarea rows=5 cols=50 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
-	var name;
-	for(name in another_stooge[name] != 'function'){
-		document.writeln(name + ': ' + another_stooge[name])
-	}
-		</textarea>
-
-      <hr>
-
-      <h3>减少全局变量污染 Global Abatement</h3>
-      <p>JavaScript可以很随意地定义全局变量来容纳您的应用的所有资源。遗憾的是，全局变量削弱了程序的灵活性，应该避免使用。</p>
-      <p>最小化使用全局变量的方法之一是为你的应用只创建一个唯一的全局变量：</p>
-      <textarea rows=1 cols=30 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
-      	var MYAPP = {};
-		</textarea>
-      <div class="row">
-      <p>该变量此时变成了你的应用的容器：</p>
-      <textarea rows=20 cols=40 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
-     MYAPP.stooge = {
-     	'first-name':'Joe',
-     	'last-name':'Howard'
-     };
-     MYAPP.flight = {
-     	airline:"Oceanic",
-     	number:815,
-     	departure:{
-     		IATA:"SYD",
-     		time:"2004-09-22 14:55",
-     		city:"Sydney"
-     	},
-     	arrival:{
-     		IATA:"LAX",
-     		time:"2004-09-23 14:55",
-     		city:"Los Angeles"
-     	}
-     }
-		</textarea>
-	   <p>只要把全局性的资源都纳入一个名称空间之下，你的程序与其他应用程序、组件或类库之间发生冲突的可能性就会显著降低。您的程序也会变得很容易阅读。因为很明显，MYAPP.stooge指向的是顶层结构。在下一章中，我们会看到使用闭包来进行信息隐藏的方法，它是另一种有效减少全局污染的方法。</p>
 
       <hr>
 
