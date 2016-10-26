@@ -277,6 +277,163 @@
         </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <h3>3.8  控制流程</h3>
+        <p class="text-indent">与任何程序设计语言一样，Java使用条件语句和循环语句确定控制流程。</p>
+        <strong><p class="text-indent text-danger">Java语言没有goto语句、但break语句可以带标签，可以利用他实现从内层循环跳出的母的。另外还有一种变形的for循环。</p></strong>
+        <div class="sub2">
+            <h4>3.8.1  块作用域</h4>
+            <p class="text-indent">块（即复合语句）是指由一对花括号括起来的若干简单的Java语句。块确定了变量的作用域。</p>
+
+            <strong><p class="text-indent text-danger">在C++中，可以在嵌套的块中重定义一个变量。在内层定义的变量会覆盖在外层定义的变量。但是在Java中不允许这样做。</p></strong>
+            <strong><p class="text-indent text-danger">
+<textarea rows=9 cols=50 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
+    public static void main(String[] args) {
+        int n;
+        ...
+        {
+            int k;
+            int n;  // ERROR--can't redefine n in inner block
+            ...
+        }
+    }
+</textarea>
+            </p></strong>
+        </div>
+        <div class="sub2">
+            <h4>3.8.2  条件语句</h4>
+            <p class="text-indent">在Java中，条件语句的格式为<strong><span class="text-danger">if (condition) statement</span></strong></p>
+        </div>
+        <div class="sub2">
+            <h4>3.8.3  循环</h4>
+            <p class="text-indent">当条件为true时，while循环执行一条语句（也可以是一个语句块）。常用的格式为：<strong><span class="text-danger">while (condition) statement</span></strong></p>
+        </div>
+        <div class="sub2">
+            <h4>3.8.4  确定循环</h4>
+            <strong><p class="text-indent text-danger"></p></strong>
+            <p class="text-indent"></p>
+        </div>
+        <div class="sub2">
+            <h4>3.8.5  多重选择：switch语句</h4>
+            <strong><p class="text-indent text-danger">
+                <textarea rows=21 cols=50 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
+    Scanner in = new Scanner(System.in);
+    System.out.print("select an option (1, 2, 3, 4) ");
+    int choice = in.nextInt();
+    switch (choice){
+        case 1:
+            ...
+            break;
+        case 2:
+            ...
+            break;
+        case 3:
+            ...
+            break;
+        case 4:
+            ...
+            break;
+        default:
+            // bad input
+            ...
+            break;
+    }
+                </textarea>
+            </p></strong>
+            <strong><p class="text-indent text-danger">我们在程序中从不使用switch语句。</p></strong>
+            <br>
+            <p class="text-indent">case标签可以是：</p>
+            <ul class="text-danger">
+                <li>类型为char、byte、short或int（或者其包装器类character、Byte、Short和Intege）</li>
+                <li>枚举常量</li>
+                <li>从Java SE7开始，case标签还可以是字符串字面量。</li>
+              </ul>  
+        </div>
+        <div class="sub2">
+            <h4>3.8.6  中断控制流程语句</h4>
+            <p>无限制地使用goto语句确实是导致错误的根源，但是有些情况下，偶尔使用goto跳出循环还是有益处的。</p>
+              <div class="row">
+                <div class="col-md-6">
+                    <textarea rows=7 cols=50 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
+            while (years <= 100){
+                balance += payment;
+                double interest = balance * interestRate / 100;
+                balance += interest;
+                if (balance >= goal) break;
+                years++;
+            }
+                    </textarea>
+                </div>
+                <div class="col-md-6">
+                    <textarea rows=7 cols=50 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
+            while (years <= 100 && balance < goal){
+                balance += payment;
+                double interest = balance * interestRate / 100;
+                balance += interest;
+                if (balance < goal) years++;
+            }  
+                    </textarea>
+                </div>
+              </div>
+            <strong><p class="text-indent text-danger">需要注意的是，在第一版本中，检测了两次balance < goal。为了避免重复检测，有些程序员更加偏爱使用break语句。
+            </p></strong>
+            <br>
+            <p class="text-indent">与C++不同，Java还提供了一种带标签的break语句，用于跳出多重循环的循环语句。有时候，在嵌套很深的循环语句中会发生一些不可以预料的事情。此时可能更加希望跳到嵌套的所有循环之外。通过添加一些额外的条件判断实现各层循环的检测很不方便。</p>
+            <strong><p class="text-indent text-danger">请注意：标签必须放在希望跳出的最外层循环之前，并且必须紧跟一个冒号。
+            </p></strong>
+                    <textarea rows=15 cols=70 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
+        Scanner in = new Scanner(System.in);
+        int n;
+        read_data:
+        while (...){    // this loop statement is tagged is tagged with the label
+            ...
+            for (...){  // this inner loop is not labeled
+                System.out.print("Enter a number >= 0:");
+                n = in.nextInt();
+                if(n < 0){  // should never happen-can't go on
+                    break read_data;
+                    // break out of read_data loop
+                }
+                ...
+            }
+        }
+                    </textarea>
+            <strong><p class="text-indent text-danger">事实上，可以将标签应用到任何语句中。甚至可以应用到if语句或者块语句中。
+            </p></strong>
+            <strong><p class="text-indent text-danger">最后，还有一个continue语句。
+            </p></strong>
+        </div>
+
+
         <h3>3.9  大数值</h3>
         <p class="text-indent">如果基本的整数和浮点数精度不能满足需求，那么就可以使用java.math包中的两个很有用的类<span class="text-danger">BigInteger</span>和<span class="text-danger">BigDecimal</span>。这两个类可以处理包括任意长度数字序列的数值。BigInteger类实现了任意精度的整数运算，BigDecimal实现了任意精度的浮点数运算。</p>
         <p class="text-indent">使用静态的valueOf方法可以将普通的数值还换成大数值：</p>
