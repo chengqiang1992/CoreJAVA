@@ -126,7 +126,6 @@
             </strong>
             <h4><strong class="text-danger">注意，Java没有任何无符号类型(unsigned)</strong></h4>
         </div>
-
         <div class="sub2">
             <h4>3.3.2  浮点型</h4>
             <table class="table table-hover table-responsive">
@@ -157,6 +156,235 @@
                 </ul>
             </strong>
         </div>
+
+        <div class="sub2">
+            <h4>3.3.3  char类型</h4>
+            <p class="text-indent">char类型用于表示单个字符。通常用来表示字符常量。例如：'A'是编码为65所对应的字符常量。与"A"不同，"A"是一个包含字符A的字符串。Unicode编码单元可以表示为十六进制值。</p>
+            <table class="table table-hover table-responsive">
+                <caption>表3-3  特殊字符的转义序列符</caption>
+                <thead>
+                    <tr>
+                      <th>转义序列</th>
+                      <th>名称</th>
+                      <th>Unicode值</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>\b</td>
+                      <td>退格</td>
+                      <td>\u0008</td>
+                    </tr>
+                    <tr>
+                      <td>\b</td>
+                      <td>退格</td>
+                      <td>\u0008</td>
+                    </tr>
+                    <tr>
+                      <td>\t</td>
+                      <td>制表</td>
+                      <td>\u0009</td>
+                    </tr>
+                    <tr>
+                      <td>\n</td>
+                      <td>换行</td>
+                      <td>\u000a</td>
+                    </tr>
+                    <tr>
+                      <td>\r</td>
+                      <td>回车</td>
+                      <td>\u000d</td>
+                    </tr>
+                    <tr>
+                      <td>\"</td>
+                      <td>双引号</td>
+                      <td>\u0022</td>
+                    </tr>
+                    <tr>
+                      <td>\'</td>
+                      <td>单引号</td>
+                      <td>\u0027</td>
+                    </tr>
+                    <tr>
+                      <td>\\</td>
+                      <td>反斜杠</td>
+                      <td>\u005c</td>
+                    </tr>
+                </tbody>
+            </table>
+            <strong>
+                <ul class="text-danger">
+                    <li>从JDK 5.0开始。代码点(code point)是指与一个编码表中的某个字符对应的代码值。</li>
+                    <li>在Unicode标准中，代码点采用十六进制书写，并加上前缀U+。</li>
+                    <li>在Java中，char类型用UTF-16编码描述一个代码单元</li>
+                    <li>我们强烈建议不要在程序中使用char类型，除非确实需要对UTF-16代码单元进行操作。最好将需要处理的字符串用抽象数据类型表示。</li>
+                </ul>
+            </strong>
+        </div>
+
+        <div class="sub2">
+            <h4>3.3.4  boolean类型</h4>
+            <strong><p class="text-indent text-danger">boolean(布尔)类型有两个值：false和true。整数值和布尔值之间不能进行相互转换</p></strong>
+        </div>
+
+        <h3>3.4  变量</h3>
+        <div class="sub2">
+            <h4>3.4.1  变量初始化</h4>
+            <strong><p class="text-indent text-danger">声明一个变量之后，必须用赋值语句对变量进行显示初始化。千万不要使用未被初始化的变量。</p></strong>
+        </div>
+        <div class="sub2">
+            <h4>3.4.2  常量</h4>
+            <strong><p class="text-indent text-danger">在Java中，利用关键字final指示常量。</p></strong>
+            <p class="text-indent">关键字final表示这个变量只能被赋值一次。一旦被赋值之后，就不能再更改了。</p>
+            <strong><p class="text-indent text-danger">类常量。使用 static final</p></strong>
+            <p class="text-indent">需要注意的是，类常量的定义位于main方法的外部。</p>
+        </div>
+
+        <h3>3.5  运算符</h3>
+        <strong><p class="text-indent text-danger">对于使用 strictfp 关键字标记的方法必须使用严格的浮点计算来产生理想的结果。</p></strong>
+        <div class="sub2">
+            <h4>3.5.1  自增运算符与自减运算符</h4>
+            <strong><p class="text-indent text-danger"></p></strong>
+        </div>
+        <div class="sub2">
+            <h4>3.5.2  关系运算符与boolean运算符</h4>
+            <strong><p class="text-indent text-danger"></p></strong>
+            <p class="text-indent"></p>
+        </div>
+        <div class="sub2">
+            <h4>3.5.3  位运算符</h4>
+            <strong><p class="text-indent text-danger"></p></strong>
+            <p class="text-indent"></p>
+        </div>
+        <div class="sub2">
+            <h4>3.5.4  数学函数与常量</h4>
+            <strong><p class="text-indent text-danger"></p></strong>
+            <p class="text-indent"></p>
+        </div>
+        <div class="sub2">
+            <h4>3.5.5  数值类型之间的转换</h4>
+            <strong><p class="text-indent text-danger"></p></strong>
+            <p class="text-indent"></p>
+        </div>
+        <div class="sub2">
+            <h4>3.5.6  强制类型转换</h4>
+            <strong><p class="text-indent text-danger">
+<textarea rows=3 cols=30 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
+    double x = 9.997;
+    int nx = (int) x;
+</textarea>
+            </p></strong>
+        </div>
+
+
+        <h3>3.9  大数值</h3>
+        <p class="text-indent">如果基本的整数和浮点数精度不能满足需求，那么就可以使用java.math包中的两个很有用的类<span class="text-danger">BigInteger</span>和<span class="text-danger">BigDecimal</span>。这两个类可以处理包括任意长度数字序列的数值。BigInteger类实现了任意精度的整数运算，BigDecimal实现了任意精度的浮点数运算。</p>
+        <p class="text-indent">使用静态的valueOf方法可以将普通的数值还换成大数值：</p>
+        <textarea rows=1 cols=50 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
+          BigInteger a = BigInteger.valueOf(100);
+        </textarea>
+        <p class="text-indent">遗憾的是，不能使用人们熟悉的算术元素符（+、-和*）处理大数值。需要借助大数值类中的add和multiply方法。</p>
+        <textarea rows=2 cols=60 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
+          BigInteger c = a.add(b); 
+          BigInteger d = c.multiply(b.a.add(BigInteger.valueOf(2)));
+        </textarea>
+
+        <h3>3.10  数组</h3>
+        <p class="text-indent">数组是一种数据结构，用来存储同一类型值的集合。通过一个整数下标可以访问数组中的每一个值</p>
+        <p class="text-indent">在声明数组变量时，需要指出数组类型（数据元素类型紧跟[]）和数组变量的名字。</p>
+        <textarea rows=1 cols=30 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
+            int[] a;
+        </textarea>
+        <p class="text-indent">初始化数组，应该使用new运算符创建数组。</p>
+        <textarea rows=1 cols=30 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
+            int[] a = new int[100];
+        </textarea>
+        <br>
+        <br>
+        <strong>
+          <ul class="text-danger">
+            <li>创建一个数组时，所有元素都初始化为0.boolean数组的元素会初始化为false。对象数组的元素则初始化为一个特殊值null。</li>
+            <li>获得数组中的元素的个数，可以使用array.length
+        <textarea rows=3 cols=30 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
+            for(int i = 0; i < a.length; i++){
+                System.out.println(a[i]);
+            }
+        </textarea>
+            </li>
+            <li>一旦创建了数组，就不能再改变它的大小了。</li>
+            <li>如果需要经常在运行过程中该bain数组的大小，就应该使用 数组列表(array list)</li>
+          </ul>  
+        </strong>
+        <div class="sub2">
+            <h4>3.10.1  for each循环</h4>
+            <strong><p class="text-indent text-danger">语句格式为:
+            </p></strong>
+            <textarea rows=1 cols=50 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
+            for(variable :collection) statement
+            </textarea>
+            <p class="text-indent">例如：</p>
+            <textarea rows=2 cols=50 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
+            for(int element : a)
+                System.out.println(element);
+            </textarea>
+        </div>
+        <div class="sub2">
+            <h4>3.10.2  数组初始化以及匿名数组</h4>
+            <p class="text-indent">创建数组对象并同时赋予初始值的简化书写形式：</p>
+            <textarea rows=1 cols=50 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
+            int[] smallPrimes = {2, 3, 5, 7, 11, 13};
+            </textarea>
+            <strong><p class="text-indent text-danger">请注意，在使用这种语句时，不需要调用new。
+            </p></strong>
+            <p class="text-indent">甚至可以初始化一个匿名的数组：</p>
+            <textarea rows=1 cols=50 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
+            new int[] {17, 19, 23, 29, 31, 37};
+            </textarea>
+        </div>
+        <div class="sub2">
+            <h4>3.10.3  数组拷贝</h4>
+            <p class="text-indent">如果希望将一个数组中的所有值拷贝到一个新的数值中去，就使用Array类的copyTo方法</p>
+            <textarea rows=1 cols=80 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
+            int [] copiedLuckyNumbers = Arrays.copyOf(luckyNumbers, luckyNumbers.length);
+            </textarea>
+        </div>
+        <div class="sub2">
+            <h4>3.10.4  命令行参数</h4>
+        </div>
+        <div class="sub2">
+            <h4>3.10.5  数组排序</h4>
+            <p class="text-indent">Java数组排序使用了快速排序算法。</p>
+            <textarea rows=3 cols=80 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
+            int[] a = new int[100];
+            ...
+            Array.sort(a)
+            </textarea>
+        </div>
+        <div class="sub2">
+            <h4>3.10.6  多维数组</h4>
+            <p class="text-indent">声明：</p>
+            <textarea rows=1 cols=50 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
+            double[][] balances;
+            </textarea>
+            <p class="text-indent">初始化：</p>
+            <textarea rows=1 cols=50 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
+            balances = new double[NYEARS][NYEARS];
+            </textarea>
+            <p class="text-indent">简化形式</p>
+            <textarea rows=7 cols=50 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
+            int [][] magicSquare = 
+                {
+                    {16, 3, 2, 13},
+                    {5, 10, 11,8},
+                    {9, 6, 7, 12},
+                    {4, 15, 14, 1}
+                };
+            </textarea>
+        </div>
+        <div class="sub2">
+            <h4>3.10.7  不规则数组</h4>
+        </div>
+
 
       <hr>
 
