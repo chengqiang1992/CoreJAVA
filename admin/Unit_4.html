@@ -5,15 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="keywords" content="JavaScript语言精粹  第四章 函数">
-    <meta name="description" content="JavaScript语言精粹  第四章 函数 读书笔记">
+    <meta name="keywords" content="Java核心技术 卷一  第四章 对象与类">
+    <meta name="description" content="Java核心技术  卷一  第四章 对象与类 读书笔记">
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
-    <title>第四章 函数</title>
+    <title>第四章 对象与类</title>
 
     <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-3.3.6-dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/global/css/global.css">
+
+    <style type="text/css">
+      .text-indent, .three-level-dirctory{
+        margin-left: 4.0rem
+      }
+    </style>
 </head>
 
   <body>
@@ -27,7 +33,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="javascript:void(0);">第四章 函数</a>
+          <a class="navbar-brand" href="javascript:void(0);">第四章 对象与类</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -51,12 +57,9 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h2>第四章  函数</h2>
-        <h4>所有的过失在未犯以前，都已定下应处的惩罚</h4>
-        <h4>——威廉·莎士比亚，《一报还一报》（Measure for Measure）</h4>
-
-        <p>JavaScript设计得最出色的就是它的函数的实现。它几乎接近于完美。但是，想必你也能预料到，Javascript的函数也存在瑕疵。</p>
-        <p>函数包含一组语句，它们是JavaScript的基础模块单元，用于代码复用、信息隐藏和组合调用。函数用于指定对象的行为。一般来说，所谓编程，就是将一组需求分解成一组函数与数据结构的技能。</p>
+        <h2>第四章  对象与类</h2>
+        <h4>人为刀俎，我为鱼肉</h4>
+        <h4>——司马迁，《史记·项羽本纪》</h4>
         <p><a class="btn btn-primary btn-lg" href="http://getbootstrap.com/examples/jumbotron/#" role="button">Learn more »</a></p>
       </div>
     </div>
@@ -64,12 +67,92 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h2>函数对象 Function Objects</h2>
-          <p>JavaScript中的函数就是对象。对象是“名/值”对的集合并拥有一个连接到原型对象的隐藏连接。对象字面量产生的对象连接到 Object.prototype。函数对象连接到 Function.prototype(该原型对象本身连接到Object.prototype)。每个函数在创建时会附加两个颖仓属性：函数的上下文和实现函数行为的代码。</p>
-          <p>每个函数对象在创建时也随配有一个 Prototype 属性。它的值是一个拥有 constructor 属性并且值即位该函数的对象。这和隐藏连接到 Function.prototype 完全不同。这个令人费解的构造过程的意义将会在下个章节中揭示。</p>
-          <p>因为函数是对象，所以他们可以把像任何其他的值一样被使用。函数可以保存在变量、对象和数组中。函数可以被当作参数传递给其他函数，函数也可以再返回函数。而且，因为函数是对象，所以函数可以拥有方法。</p>
-          <p><strong>函数的与众不同之处在于他们可以被调用</strong></p>
-          <p><a class="btn btn-default" href="http://getbootstrap.com/examples/jumbotron/#" role="button">View details »</a></p>
+          <h2>4.1  面向对象程序设计概述</h2>
+          <div class="text-indent">
+            <p>面向对象程序设计（简称OOP）是当今主流的程序设计范型，它已经取代了20世纪70年代的“结构化”过程程序设计开发技术。</p>
+            <p>面向对象的程序都是由对象组成的，每个对象包含用户公开的特定功能部分和隐藏的实现部分。</p>
+            <p>传统的结构化程序设计通过设计一系列的过程（即算法）来求解问题。一旦确定了这些过程，就要开始考虑存储的方式。而OOP却调换了这个次序，将数据放在第一位，然后再考虑操作数据的算法。</p>
+            <p><a class="btn btn-default" href="http://getbootstrap.com/examples/jumbotron/#" role="button">View details »</a></p>
+          </div>
+          <div class="three-level-dirctory">
+            <h3>4.1.1  类</h3>
+            <div class="text-indent">
+              <p><span class="text-danger">类（class）</span>是构造对象的模板或蓝图。我们可以将类想象成制作小甜饼的切割机，将对象想象成小甜饼。由<strong><span class="text-danger">类构造（construct）</span></strong>对象的过程成为创建类的<strong><span class="text-danger">实例（instance）</span></strong></p>
+              <p><strong><span class="text-danger">封装（encapsulation，有时称为数据隐藏）</span></strong>是与对象有关的一个重要概念。从形式上看，封装不过是将数据和行为组合在一个包中，并对对象的使用者隐藏了数据的实现方式。对象中的数据成为<strong><span class="text-danger">实例域（instance field）</span></strong>，操作数据的过程成为<strong><span class="text-danger">方法（method）</span></strong>。对于每个特定的类实例（对象）都有一组特定的实例域值。这些值的集合就是这个对象的<strong><span class="text-danger">当前状态（state）。</span></strong></p>
+              <p>OOP的另一个原则会让用户自定义Java类变得轻而易举，这就是：可以通过扩展一个类来建立另外一个新的类。事实上，在Java中，所有类都源自一个“神通广大的超类”，他就是Object。通过扩展一个类来建立另一个类的过程成为<strong><span class="text-danger">继承（inheritance）</span></strong>.</p>
+              <p><a class="btn btn-default" href="http://getbootstrap.com/examples/jumbotron/#" role="button">View details »</a></p>
+            </div>
+          </div>
+          <div class="three-level-dirctory">
+            <h3>4.1.2  对象</h3>
+            <div class="text-indent">
+              <p>要想使用OOP，一定要清楚对象的三个主要特性：</p>
+              <ul>
+                <li><strong><span class="text-danger">对象的行为（behavior）</span></strong>——可以对对象施加哪些操作，或可以对对象施加哪些方法？</li>
+                <li><strong><span class="text-danger">对象的状态（state）</span></strong>——当施加那些方法时，对象如何应对。</li>
+                <li><strong><span class="text-danger">对象的标识（identity）</span></strong>——如何辨识具有相同行为与状态不同的对象？</li>
+              </ul>
+              <p><a class="btn btn-default" href="http://getbootstrap.com/examples/jumbotron/#" role="button">View details »</a></p>
+            </div>
+          </div>
+          <div class="three-level-dirctory">
+            <h3>4.1.3  识别类</h3>
+            <div class="text-indent">
+              <p>传统的过程化程序设计，必须从顶部的main函数开始编写程序。在面向对象程序设计时没有所谓的“顶部”。对于学习OOP的初学者来说常常会感觉无从下手。答案是：首先从设计类开始，然后再往每个类中添加方法。</p>
+              <p class="text-danger"><strong>识别类的简单规则是在分析问题的过程中寻找名词，而方法对应着动词。</strong></p>
+              <p><strong>例如，在订单处理系统中，有这样一些名词：</strong></p>
+              <ul>
+                <li><strong><span class="text-danger">项目（Item）</span></strong></li>
+                <li><strong><span class="text-danger">订单（Order）</span></strong></li>
+                <li><strong><span class="text-danger">送货地址（Shipping address）</span></strong></li>
+                <li><strong><span class="text-danger">付款（Payment）</span></strong></li>
+                <li><strong><span class="text-danger">账户（account）</span></strong></li>
+              </ul>
+              <p><a class="btn btn-default" href="http://getbootstrap.com/examples/jumbotron/#" role="button">View details »</a></p>
+            </div>
+          </div>
+          <div class="three-level-dirctory">
+            <h3>4.1.4  类之间的关系</h3>
+            <div class="text-indent">
+              <p><strong>在类之间，最常见的关系有：</strong></p>
+              <ul>
+                <li><strong><span class="text-danger">依赖（"uses-a"）</span></strong>——应该尽量将相互依赖关系减少至最少。用软件工程的术语来说，就是让类之间的耦合度最小。</li>
+                <li><strong><span class="text-danger">聚合（"has-a"）</span></strong></li>
+                <li><strong><span class="text-danger">继承（"is-a"）</span></strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <h2>4.2  使用预定义类</h2>
+          <div class="three-level-dirctory">
+            <h3>4.2.1  对象与对象变量</h3>
+            <div class="text-indent">
+              <p>要想使用对象，就必须首先构造对象，并指定其初始状态。然后，对对象应用方法。</p>
+              <p>在Java程序设计语言中，使用<strong><span class="text-danger">构造器（constructor）</span></strong>构造新实例。构造器是一种特殊的方法，用来构造并初始化对象。</p>
+              <ul>
+                <li>构造器的名字应该与类名相同。因此Date类的构造器名为Date。要想构造一个Date对象，需要在构造器前面加上new操作符。
+                  <pre>
+<code>new Date()</code>
+                  </pre>
+                </li>
+                <li>对象与对象变量之间存在着一个重要的区别。</li>
+                <li>一定要认识到：一个对象变量并没有是既包含一个对象，而仅仅引用一个对象。</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 

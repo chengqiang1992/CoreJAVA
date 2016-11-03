@@ -63,7 +63,7 @@
         <strong>
           <ul class="text-danger">
             <li>首先，<strong>Java对大小写敏感。</strong></li>
-            <li>关键字<strong>public</strong>称为ie<strong>访问修饰符，它用于控制程序的其他部分对这段代码的访问级别。</strong></li>
+            <li>关键字<strong>public</strong>称为<strong>访问修饰符，它用于控制程序的其他部分对这段代码的访问级别。</strong></li>
             <li>关键字class后面紧跟类名。Java中定义类名的规则很宽松。</li>
             <li>源代码的文件名必须与公共类的名字相同，并且用.java作为扩展名</li>
           </ul>  
@@ -276,34 +276,236 @@
             </p></strong>
         </div>
 
+        <h3>3.7  输入输出</h3>
+        <div class="sub2">
+            <h4>3.7.1  读取输入</h4>
+            <p class="text-indent">打印输出到“标准输出流”（即控制台窗口）是一件非常容易的事情，只要调用<strong><span class="text-indent text-danger">System.out.print</span></strong>即可。然而，读取“标准输入流”<strong><span class="text-indent text-danger">System.in</span></strong>就没有那么简单了。要想通过控制台进行输入，首先需要构造一个<strong><span class="text-indent text-danger">Scanner</span></strong>对象，并与“标准输入流”<strong><span class="text-indent text-danger">System.in</span></strong>关联。</p>
+            <strong>
+                <p class="text-indent text-danger">
+                    <textarea rows=28 cols=70 style="border: 0px;overflow:hidden;resize:none;" disabled="disabled">
+   import java.util.Scanner;
 
+    /**
+     * This program demonstrates console input.
+     * @version 1.10 2016-10-27
+     * @author chengqiang
+     *
+     */
 
+    public class InputTest {
 
+        public static void main(String[] args) {
+            Scanner in = new Scanner(System.in);
+            
+            // get first input
+            System.out.print("What is your name?");
+            String name = in.nextLine();
+            
+            // get second input
+            System.out.print("How old are you?");
+            int age = in.nextInt();
+            
+            // display output on console
+            System.out.println("Hello, " + name + ".Next year, you'll be " + (age + 1));
+        }
 
+    }
+                    </textarea>
+                </p>
+            </strong>
+            <strong><p class="text-indent text-danger">Scanner对象其他用法</p></strong>
+            
+           <div class="row">
+             <div class="col-md-5">
+                 <blockquote><pre><code>
+    Scanner sc = new Scanner(new File("myNumbers"));
+    while (sc.hasNextLong()) {
+      long aLong = sc.nextLong();
+    }
+                 </code></pre></blockquote>
+             </div>
+             <div class="col-md-5 col-md-offset-1">
+                 <blockquote><pre><code>
+    String input = "1 fish 2 fish red fish blue fish";
+    Scanner s = new Scanner(input).useDelimiter("\\s*fish\\s*");
+    System.out.println(s.nextInt());
+    System.out.println(s.nextInt());
+    System.out.println(s.next());
+    System.out.println(s.next());
+    s.close();
+                  </code></pre></blockquote>
+             </div>
+           </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        </div>
+        <div class="sub2">
+            <h4>3.7.2  格式化输出</h4>
+            <p class="text-indent">在printf中，可以使用多个参数。例如：</p>
+            <strong><p class="text-indent text-danger" style="padding-left: 20px">System.out.printf("Hello, %s. Next year, you'll be %d", name, age);</p></strong>
+            <p class="text-indent">每一个以%字符开始的格式说明符都用相应的参数替换。格式说明符尾部的转换符将指示被格式化的数值类型</p>
+             <div class="row">
+               <div class="col-sm-5 col-md-5">
+                    <pre>
+                        <table class="table table-hover table-responsive">
+                            <caption>表3-5  用于printf的转换符</caption>
+                            <thead>
+                                <tr>
+                                  <th>转换符</th>
+                                  <th>类型</th>
+                                  <th>举例</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                  <td>d</td>
+                                  <td>十进制整数</td>
+                                  <td>159</td>
+                                </tr>
+                                <tr>
+                                  <td>x</td>
+                                  <td>十六进制整数</td>
+                                  <td>9f</td>
+                                </tr>
+                                <tr>
+                                  <td>o</td>
+                                  <td>八进制整数</td>
+                                  <td>237</td>
+                                </tr>
+                                <tr>
+                                  <td>f</td>
+                                  <td>定点浮点数</td>
+                                  <td>15.9</td>
+                                </tr>
+                                <tr>
+                                  <td>e</td>
+                                  <td>指数浮点数</td>
+                                  <td>15.9e+01</td>
+                                </tr>
+                                <tr>
+                                  <td>g</td>
+                                  <td>通用浮点数</td>
+                                  <td>——</td>
+                                </tr>
+                                <tr>
+                                  <td>a</td>
+                                  <td>十六进制浮点数</td>
+                                  <td>0x1.fccdp3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </pre>
+               </div>
+               <div class="col-sm-5 col-md-5 col-sm-offset-1 col-md-offset-1">
+                   <pre>
+                       <table class="table table-hover">
+                           <caption>表3-5  用于printf的转换符</caption>
+                           <thead>
+                               <tr>
+                                 <th>转换符</th>
+                                 <th>类型</th>
+                                 <th>举例</th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                               <tr>
+                                 <td>s</td>
+                                 <td>字符串</td>
+                                 <td>Hello</td>
+                               </tr>
+                               <tr>
+                                 <td>c</td>
+                                 <td>字符</td>
+                                 <td>H</td>
+                               </tr>
+                               <tr>
+                                 <td>b</td>
+                                 <td>布尔</td>
+                                 <td>True</td>
+                               </tr>
+                               <tr>
+                                 <td>h</td>
+                                 <td>散列码</td>
+                                 <td>42628b2</td>
+                               </tr>
+                               <tr>
+                                 <td>tx</td>
+                                 <td>日期时间</td>
+                                 <td>见表3-7</td>
+                               </tr>
+                               <tr>
+                                 <td>%</td>
+                                 <td>百分号</td>
+                                 <td>%</td>
+                               </tr>
+                               <tr>
+                                 <td>n</td>
+                                 <td>与平台有关的行分隔符</td>
+                                 <td>——</td>
+                               </tr>
+                           </tbody>
+                       </table>
+                    </pre>
+               </div>
+             </div>
+             <p class="text-indent">另外，还可以给出控制格式化输出的各种标志。例如：</p>
+             <strong><p class="text-indent text-danger" style="padding-left: 20px">System.out.printf("%,.2f", 10000.0 / 3.0);   //3,33.33</p></strong>
+             <div class="row">
+                 <pre>
+                     <table class="table table-hover">
+                         <caption>表3-6  用于printf的标志</caption>
+                         <thead>
+                             <tr>
+                               <th>标志</th>
+                               <th>目的</th>
+                               <th>举例</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                             <tr>
+                               <td>+</td>
+                               <td>打印正数和负数的符号</td>
+                               <td>+3333.33</td>
+                             </tr>
+                             <tr>
+                               <td>空格</td>
+                               <td>在整数之前添加空格</td>
+                               <td>| 3333.33|</td>
+                             </tr>
+                             <tr>
+                               <td>0</td>
+                               <td>数字前面补0</td>
+                               <td>003333.33</td>
+                             </tr>
+                             <tr>
+                               <td>-/td>
+                               <td>左对齐</td>
+                               <td>|3333.33 |</td>
+                             </tr>
+                             <tr>
+                               <td>(</td>
+                               <td>将负数括在括号内</td>
+                               <td>( 3333.33 )</td>
+                             </tr>
+                             <tr>
+                               <td>.</td>
+                               <td>添加分组分隔符</td>
+                               <td>3,333.33</td>
+                             </tr>
+                             <tr>
+                               <td>#(对于f格式)</td>
+                               <td>包含小数点</td>
+                               <td>3,333.</td>
+                             </tr>
+                             <tr>
+                               <td>#(对于x或0格式)</td>
+                               <td>添加前缀0x或0</td>
+                               <td>0xcafe</td>
+                             </tr>
+                         </tbody>
+                     </table>
+                  </pre>
+             </div>
+        </div>
 
 
 

@@ -10,6 +10,9 @@ body {
   padding: 40px 15px;
   text-align: center;
 }
+.table{
+  margin-bottom: 0px;
+}
 table > caption{
   font-size: 1.5rem;
   font-weight: 600;
@@ -47,7 +50,10 @@ h4 {
   border: 1px solid #ddd;
   border: 1px solid rgba(86,61,124,.2);
 }
-
+.col-md-5, blockquote, pre{
+  padding: 0px;
+  margin-bottom: 0px;
+}
 hr {
   margin-top: 40px;
   margin-bottom: 40px;
