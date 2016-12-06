@@ -1,2 +1,5 @@
-D:\BackEnd\CoreJAVA\workspace\.metadata
-D:\BackEnd\CoreJAVA\workspace\.recommenders
+workspace/.metadata
+workspace/.recommenders
+*/*/*.classpath
+*/*/*.project
+*/*/*.gitignore
